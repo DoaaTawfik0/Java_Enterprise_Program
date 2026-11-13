@@ -10,11 +10,13 @@ public class Bird extends Animal {
 
     private double wingSpan;
     private boolean canFly;
+    static int birdsCount = 0;
 
     public Bird(String name, int age, String species, double weight, boolean isHealthy, double wingSpan, boolean canFly) {
         super(name, age, species, weight, isHealthy);
         validateWingSpan(wingSpan);
         setCanFly(canFly);
+        birdsCount++;
     }
 
     public void validateWingSpan(double wingSpan) {
