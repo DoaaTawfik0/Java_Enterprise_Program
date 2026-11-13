@@ -1,10 +1,8 @@
 package com.doaatawfik;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class Animal {
 
     private String name;
@@ -13,6 +11,13 @@ public class Animal {
     private String species;
     private double weight;
     private boolean isHealthy;
+
+    public Animal(String name, int age, String species, double weight, boolean isHealthy) {
+        validateName(name);
+        validateAge(age);
+        validateWeight(weight);
+        validateSpecies(species);
+    }
 
     public void validateName(String name) {
         if (!name.isBlank()) {
