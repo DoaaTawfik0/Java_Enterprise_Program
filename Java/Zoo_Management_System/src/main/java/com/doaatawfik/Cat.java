@@ -10,13 +10,11 @@ public class Cat extends Animal {
 
     private String furColor;
     private boolean isIndoor;
-    static int catsCount = 0;
 
     public Cat(String name, int age, String species, double weight, boolean isHealthy, String furColor, boolean isIndoor) {
         super(name, age, species, weight, isHealthy);
         validateFurColor(furColor);
         setIndoor(isIndoor);
-        catsCount++;
     }
 
 

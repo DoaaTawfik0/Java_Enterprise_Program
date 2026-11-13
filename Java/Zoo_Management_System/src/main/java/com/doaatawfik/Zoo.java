@@ -27,6 +27,7 @@ public class Zoo {
     public void displayAllAnimals() {
         if (animals.isEmpty()) {
             System.out.println("No animals have been added to " + getZooName());
+            return;
         }
 
         System.out.println("===================================  Animals List     ==================================");
@@ -101,8 +102,18 @@ public class Zoo {
     }
 
     private void displayAnimalsTypeCount() {
-        System.out.println("Cats = " + Cat.catsCount + ", Dogs = " + Dog.dogsCount + ", Birds = " + Bird.birdsCount);
+        long cats = animals.stream()
+                .filter(Cat.class::isInstance)
+                .count();
+        long dogs = animals.stream()
+                .filter(Dog.class::isInstance)
+                .count();
+        long birds = animals.stream()
+                .filter(Bird.class::isInstance)
+                .count();
+        System.out.println("Cats = " + cats + ", Dogs = " + dogs + ", Birds = " + birds);
     }
+
 
     private int countHealthyAnimals() {
         if (animals.isEmpty()) {

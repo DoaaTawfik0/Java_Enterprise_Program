@@ -9,12 +9,10 @@ import lombok.EqualsAndHashCode;
 public class Dog extends Animal {
 
     private String breed;
-    static int dogsCount = 0;
 
     public Dog(String name, int age, String species, double weight, boolean isHealthy, String breed) {
         super(name, age, species, weight, isHealthy);
         validateBreed(breed);
-        dogsCount++;
     }
 
     public void validateBreed(String breed) {
