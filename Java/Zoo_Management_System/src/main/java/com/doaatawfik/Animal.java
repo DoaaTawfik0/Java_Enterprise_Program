@@ -64,13 +64,13 @@ public class Animal {
     }
 
     public void displayInfo() {
-        System.out.println("Animal{" +
+        System.out.print(
                 "name='" + name + '\'' +
-                ", age=" + age +
-                ", species='" + species + '\'' +
-                ", weight=" + weight +
-                ", isHealthy=" + isHealthy +
-                '}');
+                        ", age=" + age +
+                        ", species='" + species + '\'' +
+                        ", weight=" + weight +
+                        ", isHealthy=" + isHealthy
+        );
     }
 
 }
