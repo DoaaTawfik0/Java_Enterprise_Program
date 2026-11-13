@@ -46,13 +46,13 @@ public class Zoo {
         return null;
     }
 
-    public void removeAnimal(Animal animal) {
-        Animal foundAnimal = findAnimalByName(animal.getName());
+    public void removeAnimal(String name) {
+        Animal foundAnimal = findAnimalByName(name);
         if (foundAnimal != null) {
-            animals.remove(animal);
-            System.out.println("Animal " + animal.getName() + " has been removed from " + getZooName());
+            animals.remove(foundAnimal);
+            System.out.println("Animal " + name + " has been removed from " + getZooName());
         } else {
-            System.out.println("Animal " + animal.getName() + " not found in " + getZooName());
+            System.out.println("Animal " + name + " not found in " + getZooName());
         }
     }
 
