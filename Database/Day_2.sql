@@ -111,3 +111,33 @@ SELECT d.department_name,COUNT(*) AS headcount,
 FROM departments d join employees e
 ON e.department_id=d.department_id
 GROUP BY d.department_name
+
+
+
+------------------------------------  Subqueries  -------------------------------
+--- Employees earning above the company average
+SELECT e.first_name, e.salary FROM employees e
+WHERE e.salary > (SELECT AVG(e.salary) FROM employees e)
+
+
+--- Highest paid employee
+SELECT e.first_name, e.salary FROM employees e
+WHERE e.salary >= (SELECT MAX(e.salary) FROM employees e)
+
+--- Employee on at least one project
+SELECT e.first_name
+FROM employees e
+WHERE EXISTS (
+    SELECT 1
+    FROM employee_projects e_p
+    WHERE e.employee_id = e_p.employee_id
+);
+
+--- Employee on no project
+SELECT e.first_name
+FROM employees e
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM employee_projects e_p
+    WHERE e.employee_id = e_p.employee_id
+);
